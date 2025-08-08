@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CryptoMovers 🚨</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>CryptoMovers 🚨</h1>
+  <p><strong>Dernières grosses transactions (>100k€)</strong></p>
+  <div class="tx-list">
+    {% for tx in transactions %}
+      <div class="tx">
+        <strong>{{ tx.amount }} {{ tx.currency }}</strong>
+        ({{ tx.value_eur:,.0f}}€) →
+        <a href="{{ tx.link }}" target="_blank">Voir sur {{ tx.explorer }}</a>
+        <span>{{ tx.time }}</span>
+      </div>
+    {% endfor %}
+  </div>
+  <p><a href="/premium">👉 Version Pro : alertes SMS & filtres</a></p>
+</body>
+</html>
